@@ -1,6 +1,6 @@
 var imp, angel;
-var hi = 400;
-var lo = 400;
+var hi = 800;
+var lo = 800;
 var angelX = 0;
 var angelY = 0;
 var impX = lo;
@@ -20,6 +20,7 @@ function draw() {
   if(mouseIsPressed){
     background(0);
   } else{
+
     angelX = random(0,lo);
     angelY = random(0, hi);
     impX = lo - angelX;
