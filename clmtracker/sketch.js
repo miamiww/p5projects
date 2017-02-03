@@ -2,6 +2,7 @@ var ctracker;
 var slider;
 var vidWidth = 400;
 var vidHeight = 300;
+//create array of emojis for slider
 var emojis = [
   "🍥", "💩","🌯","🍾","👢","👘","👽"
 ]
@@ -45,7 +46,9 @@ function draw() {
 //    fill(map(positions[i][0], width*0.33, width*0.66, 0, 255), map(positions[i][1], height*0.33, height*0.66, 0, 255), 255);
     // draw ellipse at each position point
     var val = slider.value();
+    //create emoji size
     textSize(200);
+    //assign emoji to center of the face (position 6 adjusted for inexplicable drift)
     text(emojis[val], positions[6][0] - 100, positions[6][1]);
 //  }
 
