@@ -1,18 +1,22 @@
 var ctracker;
 var slider;
+var vidWidth = 400;
+var vidHeight = 300;
 var emojis = [
   "🍥", "💩","🌯","🍾","👢","👘","👽"
 ]
+var ec ;
+var emotionData;
 
 function setup() {
 
   // setup camera capture
   var videoInput = createCapture();
-  videoInput.size(400, 300);
+  videoInput.size(vidWidth, vidHeight);
   videoInput.position(0, 0);
 
   // setup canvas
-  var cnv = createCanvas(400, 300);
+  var cnv = createCanvas(vidWidth, vidHeight);
   cnv.position(0, 0);
 
   // setup tracker
@@ -24,6 +28,10 @@ function setup() {
   slider.position(0, 400);
 
   noStroke();
+
+//  var ec = new emotionClassifier();
+//  ec.init(emotionModel);
+//  var emotionData = ec.getBlank();
 }
 
 function draw() {
@@ -32,12 +40,13 @@ function draw() {
   // get array of face marker positions [x, y] format
   var positions = ctracker.getCurrentPosition();
 
-  for (var i=0; i<positions.length; i++) {
+//  for (var i=0; i<positions.length; i++) {
     // set the color of the ellipse based on position on screen
-    fill(map(positions[i][0], width*0.33, width*0.66, 0, 255), map(positions[i][1], height*0.33, height*0.66, 0, 255), 255);
+//    fill(map(positions[i][0], width*0.33, width*0.66, 0, 255), map(positions[i][1], height*0.33, height*0.66, 0, 255), 255);
     // draw ellipse at each position point
     var val = slider.value();
-    text(emojis[val], positions[i][0], positions[i][1]);
-  }
+    textSize(200);
+    text(emojis[val], positions[6][0] - 100, positions[6][1]);
+//  }
 
 }
